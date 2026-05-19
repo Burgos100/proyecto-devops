@@ -23,7 +23,7 @@ jobs:
       run: npm install --ignore-scripts
 
     - name: Ejecutar ESLint
-      run: ./node_modules/.bin/eslint .
+      run: npx --no-install eslint .
 
     - name: Ejecutar Pruebas Automatizadas
-      run: npm test
+      run: npx --no-install jest
