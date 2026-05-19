@@ -20,7 +20,7 @@ jobs:
         node-version: '18.x'
 
     - name: Instalar dependencias
-      run: HUSKY=0 npm install
+      run: npm install
 
     - name: Ejecutar ESLint
       run: npm run lint
