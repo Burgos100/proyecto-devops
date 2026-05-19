@@ -20,12 +20,10 @@ jobs:
         node-version: '18.x'
 
     - name: Instalar dependencias
-      run: |
-        npm config set ignore-scripts true
-        npm install
+      run: HUSKY=0 npm install
 
     - name: Ejecutar ESLint
-      run: npx eslint .
+      run: npm run lint
 
     - name: Ejecutar Pruebas Automatizadas
-      run: npx jest
+      run: npm test
