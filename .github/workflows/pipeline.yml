@@ -20,12 +20,10 @@ jobs:
         node-version: '18.x'
 
     - name: Instalar dependencias
-      run: |
-        npm config delete ignore-scripts
-        npm install
+      run: npm install
 
     - name: Ejecutar ESLint
-      run: npm run lint
+      run: npx eslint .
 
     - name: Ejecutar Pruebas Automatizadas
-      run: npm test
+      run: npx jest
