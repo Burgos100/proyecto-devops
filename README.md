@@ -11,8 +11,6 @@ Jest: La herramienta para crear la prueba automatizada que verifica que el cálc
 
 ESLint / Prettier: Es el corrector del código. Aseguran que todo esté bien escrito y formateado
 
-Husky y lint-staged: Basicamente seguridad local. Son Git Hooks que bloquean cualquier intento de hacer commit si el codigo tiene errores
-
 Docker: La plataforma que empaqueta nuestra app en un contenedor aislado
 
 GitHub Actions: El servicio en la nube que ejecuta nuestro pipeline CI/CD automáticamente
@@ -21,3 +19,5 @@ Dificultades encontradas:
 Conexión con el Daemon de Docker: Al intentar construir la imagen la primera vez, la terminal no se podía comunicar con el motor de Docker. Esto se resolvió encendiendo el servicio de Docker Desktop en segundo plano
 
 Conflicto de instalación en el Dockerfile: Al ejecutar la instalación de producción en Docker, NPM intentaba lanzar los scripts automáticos de Husky, los cuales no existían en ese entorno. Esto lo resolvi pasando el parámetro --ignore-scripts en el comando de instalación
+
+Conflicto de versiones con ESLint:El pipeline en GitHub se caía porque se instaló automáticamente la versión 9 de ESLint de internet. Esta versión nueva cambió por completo su formato y ya no era compatible con mi archivo .eslintrc.json, haciendo que la validación fallara. La solucion fue bajar la versión de ESLint a la 8 y ejecutando npm install --save-dev eslint@8. Esto dejó registrada la versión fija y correcta en el proyecto, haciendo que GitHub Actions leyera el archivo de configuración sin problemas.
