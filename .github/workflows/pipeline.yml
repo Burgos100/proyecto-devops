@@ -20,7 +20,7 @@ jobs:
         node-version: '18.x'
 
     - name: Instalar dependencias
-      run: npm install
+      run: npm install --ignore-scripts
 
     - name: Ejecutar ESLint
       run: npm run lint
